@@ -35,8 +35,23 @@ class GiangVien{
     public $maGV;
     public $tenGV;
     public $namSinh;
+    //Khai báo hàm khoi tao
+    public function  __construct($maGV, $tenGV, $namSinh)
+    {
+        $this->maGV = $maGV;
+        $this->tenGV = $tenGV;
+        $this->namSinh = $namSinh;
+    }
     // những thuộc tính khác tương tự
     // Khai báo phương thuc
+    // Khai báo phương thức set cho tang thuộc tính
+    // TT maGV
+    public  function setMaGV($maGV){
+        return $this->maGV = $maGV;
+    }
+    public function getMaGV(){
+        var_dump($this->maGV);
+    }
     public function tinhTuoi(){
         return date('Y') - $this->namSinh;
     }
@@ -49,8 +64,10 @@ class GiangVien{
         // Tương tu
     }
 }
-$gv = new GiangVien();
-$gv->maGV = "000001";
-$gv->tenGV = "Nguyen Văn A";
-$gv->namSinh = 2000;
-$gv->hienThiThongTin();
+$gv = new GiangVien("00001", "Nguyen Văn A", 2000);
+//$gv->maGV = "000001";
+//$gv->setMaGV("00001");
+$gv->getMaGV();
+//$gv->tenGV = "Nguyen Văn A";
+//$gv->namSinh = 2000;
+//$gv->hienThiThongTin();
