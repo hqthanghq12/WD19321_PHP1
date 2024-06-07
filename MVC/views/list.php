@@ -16,18 +16,22 @@
         <td>Hình ảnh</td>
         <td>Số lượng</td>
         <td>Trạng thái</td>
+        <td>Hành Động</td>
     </tr>
     <?php
-         var_dump($productList);
+//         var_dump($productList);
          foreach ($productList as $key => $value){
     ?>
     <tr>
         <td><?php echo $value->id ?></td>
         <td><?php echo $value->name ?></td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
+        <td><?php echo $value->price ?></td>
+        <td><img src="<?php echo $value->image ?>" alt=""></td>
+        <td><?php echo $value->quantity ?></td>
+        <td><?php echo $value->status ?></td>
+        <td>
+            <a href="?act=editProduct&id=<?php echo $value->id ?>">Sửa</a>
+        </td>
     </tr>
     <?php } ?>
 </table>

@@ -26,4 +26,20 @@ class Product{
         // gọi hàm execute()
         return $this->connect->loadData();
     }
+    public function insertDataProduct($id, $name, $price, $image, $quantity, $status){
+        $sql = "INSERT INTO `products` VALUES (?,?,?,?,?,?)";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$id, $name, $price, $image, $quantity, $status]);
+    }
+    public function getIdDataProduct($id){
+        $sql = "SELECT * FROM `products` WHERE id = ?";
+        $this->connect->setQuery($sql);
+//        nếu mà lấy 1 bản ghi hoặc chỉnh sửa dữ liệu nhớ phải truyê thêm false
+        return $this->connect->loadData([$id], false);
+    }
+    public function updateDataProduct( $name, $price, $image, $quantity, $status, $id){
+        $sql = "UPDATE `products` SET `name`= ?,`price`= ?,`image`= ?,`quantity`= ?,`status`= ? WHERE `id`= ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$name, $price, $image, $quantity, $status, $id], false);
+    }
 }
